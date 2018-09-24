@@ -16,13 +16,11 @@ For detailed instructions on how to get started, check out this [guide](https://
 
 ## Objective
 
-The objective is to get the player from the grass, across the stone sidewalk, to the water without colliding with the enemy bugs.
+The objective is to get the player from the grass to the water without colliding with the enemy bugs. Move the player across the stone sidewalk but avoid the enemy bugs, which travel at different speeds.
 
 ## Instructions
 
-Use the arrow keys to move the player around the board towards the water. Using the arrow keys, move the player to avoid a collision with the bugs moving across the sidewalks. If a collision occurs, the player must start over. Once the player reaches the water, the game is won.
-
-Use the Up and Down arrows to move the player up and down. Use the Right and Left arrows to move the player right and left. 
+Use the arrow keys to move the player around the board towards the water. Use the Up and Down arrows to move the player up and down. Use the Right and Left arrows to move the player right and left. Using the arrow keys to also move the player to avoid a collision with the bugs moving across the sidewalks. If a collision occurs, the player must start over. Once the player reaches the water, the game is won. 
 
 ## Dependencies
 
