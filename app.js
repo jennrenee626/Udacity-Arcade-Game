@@ -1,18 +1,22 @@
 
 // Enemies
 class Enemy {
-   constructor(x,y) {
-    // The enemy image/sprite
+   constructor(x,y,speed) {
     this.sprite = 'images/enemy-bug.png'; 
+    
     this.x=x;
     this.y=y;
+    this.speed = speed;
 }}
 
 // Update the enemy's position , Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+    //moves enemy forward
+    this.x += this.speed*dt;
+    //if enemy gets to 500+, move enemy back to -50 xpos
+    if (this.x > 500) { 
+      this.x = -100; 
+    }
 };
 
 // Render enemy on screen
@@ -21,7 +25,7 @@ Enemy.prototype.render = function() {
 };
 
 // Instantiate enemy objects. Enemy objects array = allEnemies.
-let allEnemies = [new Enemy(10,50), new Enemy(50,140), new Enemy(100,230)];
+let allEnemies = [new Enemy(10,50,100), new Enemy(50,140,50), new Enemy(350,140,50), new Enemy(100,230,150)];
 
 
 // Player
@@ -43,7 +47,8 @@ class Player {
         } else if (event.keyCode ==38 && this.y >-50) {
             this.y -=50;
                 if (this.y <=0) {
-                alert('Winner!');}
+                alert('Winner!');
+                }
         }
     };
     Player.prototype.render = function() {
@@ -64,3 +69,7 @@ document.addEventListener('keyup', function(e) {
     };
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+function reset () {
+
+}
