@@ -6,22 +6,24 @@ class Enemy {
      this.x=x;
      this.y=y;
      this.speed = speed;
- }}
  
- // Update the enemy's position , Parameter: dt, a time delta between ticks
- Enemy.prototype.update = function(dt) {
-     //moves enemy forward
-     this.x += this.speed*dt;
-     //if enemy gets to 500+, move enemy back to -50 xpos
-     if (this.x > 500) { 
-       this.x = -100; 
-     }
- };
  
- // Render enemy on screen
- Enemy.prototype.render = function() {
-     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
- };
+    // Update the enemy's position , Parameter: dt, a time delta between ticks
+    Enemy.prototype.update = function(dt) {
+        //moves enemy forward
+        this.x += this.speed*dt;
+        //if enemy gets to 500+, move enemy back to -50 xpos
+        if (this.x > 500) { 
+        this.x = -100; 
+        }
+    };
+    
+    // Render enemy on screen
+    Enemy.prototype.render = function() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    };
+    };
+}
  
  // Instantiate enemy objects. Enemy objects array = allEnemies.
  let allEnemies = [new Enemy(10,50,100), new Enemy(50,140,50), new Enemy(350,140,50), new Enemy(100,230,150)];
