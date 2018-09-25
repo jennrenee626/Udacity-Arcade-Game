@@ -1,6 +1,3 @@
-let allEnemies = [new Enemy(10,50,100), new Enemy(50,140,50), new Enemy(350,140,50), new Enemy(100,230,150)];
-const player = new Player(200,375);
-
 // Enemies
 class Enemy {
     constructor(x,y,speed) {
@@ -9,23 +6,26 @@ class Enemy {
      this.x=x;
      this.y=y;
      this.speed = speed;
-  
- // Update the enemy's position , Parameter: dt, a time delta between ticks
-    Enemy.prototype.update = function(dt) {
-        //moves enemy forward
-        this.x += this.speed*dt;
-        //if enemy gets to 500+, move enemy back to -50 xpos
-        if (this.x > 500) { 
-        this.x = -100; 
-        }
-    };
+ }}
  
-    // Render enemy on screen
-    Enemy.prototype.render = function() {
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    };
-}
-}
+ // Update the enemy's position , Parameter: dt, a time delta between ticks
+ Enemy.prototype.update = function(dt) {
+     //moves enemy forward
+     this.x += this.speed*dt;
+     //if enemy gets to 500+, move enemy back to -50 xpos
+     if (this.x > 500) { 
+       this.x = -100; 
+     }
+ };
+ 
+ // Render enemy on screen
+ Enemy.prototype.render = function() {
+     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+ };
+ 
+ // Instantiate enemy objects. Enemy objects array = allEnemies.
+ let allEnemies = [new Enemy(10,50,100), new Enemy(50,140,50), new Enemy(350,140,50), new Enemy(100,230,150)];
+ 
  
  // Player
  class Player {
@@ -70,8 +70,10 @@ class Enemy {
      Player.prototype.render = function() {
          ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
-};
-}
+ };}
+ 
+ // Instantiate player object. Player object in a variable called player.
+ const player = new Player(200,375);
  
  // This listens for key presses and sends the keys to your Player.handleInput() method. You don't need to modify this.
  document.addEventListener('keyup', function(e) {
