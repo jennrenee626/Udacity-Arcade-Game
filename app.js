@@ -36,7 +36,21 @@ class Player {
     this.x=x;
     this.y=y;
     
-    Player.prototype.update = function(dt) {};
+    Player.prototype.update = function(dt) {
+        for (let enemy of allEnemies) {
+            //4 following lines, referenced solittletime - https://discussions.udacity.com/t/i-dont-understand-how-to-code-classic-arcade-game/527836/3
+            let circlex = this.x - enemy.x - 20;
+            let circley = this.y - enemy.y - 20;
+            let distance = Math.sqrt(circlex * circlex + circley * circley);
+            if (distance < 50) {
+              console.log('You have been hit!');
+              alert('You have been hit!');
+              this.x = 200;
+              this.y = 375;
+            }
+        }
+    };
+
     Player.prototype.handleInput = function(dt) {
         if (event.keyCode == 37 && this.x >-50) {
             this.x -=50;
@@ -47,7 +61,10 @@ class Player {
         } else if (event.keyCode ==38 && this.y >-50) {
             this.y -=50;
                 if (this.y <=0) {
+                console.log('Winner!');
                 alert('Winner!');
+                this.x = 200;
+                this.y = 375;
                 }
         }
     };
@@ -69,7 +86,3 @@ document.addEventListener('keyup', function(e) {
     };
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
-function reset () {
-
-}
